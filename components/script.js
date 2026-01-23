@@ -27,8 +27,8 @@
 let num=0;
 const interval=setInterval(() => {
     num+=1
-    console.log(num)
-    if(count===10){
+    console.log(num);
+    if(num===10){
         clearInterval(interval)
 
     }
