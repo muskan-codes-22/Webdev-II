@@ -24,17 +24,56 @@
 // setTimeout(() => {clearInterval(interval)},10000);
 // const timeout=setTimeout(() => {console.log("after 2 second")},2000);
 // clearTimeout(timeout);
-let num=0;
-const interval=setInterval(() => {
-    num+=1
-    console.log(num);
-    if(num===10){
-        clearInterval(interval)
+// let num=0;
+// const interval=setInterval(() => {
+//     num+=1
+//     console.log(num);
+//     if(num===10){
+//         clearInterval(interval)
 
-    }
-},1000) 
+//     }
+// },1000) 
     
-    
+// const taskName=document.querySelector("#name")  
+// const button=document.querySelector(".btn")  
+// const list=document.querySelector(".list")
+
+// button.addEventListener("click",()=>{
+//     // #creating the element
+//     const li=document.createElement("li")
+//     const deleteButton=document.createElement("button")
+
+//     // providng value to the elements
+//     li.innerText=taskName.value
+//     deleteButton.innerText="Delete" 
+//     deleteButton.addEventListener("click",()=>{
+//         // li.remove()
+//         list.removeChild(li)
+//     })
+//     li.appendChild(deleteButton)
+//     list.appendChild(li)
+//     taskName.value=""
+// })   
+
+
+console.log("starting homework");
+
+setTimeout(() => {
+  console.log("homework done!");
+  console.log("starting dinner");
+
+  setTimeout(() => {
+    console.log("dinner done!");
+    console.log("getting ready to go out");
+
+    setTimeout(() => {
+      console.log("going to playground");
+    }, 1000);
+
+  }, 2000);
+
+}, 3000);
+   
 
 
 
