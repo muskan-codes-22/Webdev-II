@@ -74,28 +74,44 @@
 
 // }, 3000);
    
-function finishHomework(callback){
-    console.log("starting homework");
-    setTimeout(() => {
-      console.log("homework done!");
-      callback();
-    }, 2000);
-}
+// function finishHomework(callback){
+//     console.log("starting homework");
+//     setTimeout(() => {
+//       console.log("homework done!");
+//       callback();
+//     }, 2000);
+// }
 
-function haveDinner(callback){
-    console.log("starting dinner");
-    setTimeout(() => {
-      console.log("dinner done!");
-      callback();
-    }, 2000);
-}
-function goToPlayground(){
-    console.log("going to playground");
-}
-    haveDinner(()=>{
-        finishHomework(()=>{
-            goToPlayground();
-    }); 
-});
+// function haveDinner(callback){
+//     console.log("starting dinner");
+//     setTimeout(() => {
+//       console.log("dinner done!");
+//       callback();
+//     }, 2000);
+// }
+// function goToPlayground(){
+//     console.log("going to playground");
+// }
+//     haveDinner(()=>{
+//         finishHomework(()=>{
+//             goToPlayground();
+//     }); 
+// });
 
+const p= new Promise((resolve,reject)=>{
+    console.log("going to do homework")
+   setTimeout(() => {
+    const done=true;
+    if(done){
+        resolve("success")
+    }else{
+        reject("failed to fetch data form server")
+    }
+},3000)
 
+})
+p.then((data)=>{
+    console.log(data)
+}).catch((error)=>{
+    console.log(error)
+})
