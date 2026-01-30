@@ -56,25 +56,46 @@
 // })   
 
 
-console.log("starting homework");
+// console.log("starting homework");
 
-setTimeout(() => {
-  console.log("homework done!");
-  console.log("starting dinner");
+// setTimeout(() => {
+//   console.log("homework done!");
+//   console.log("starting dinner");
 
-  setTimeout(() => {
-    console.log("dinner done!");
-    console.log("getting ready to go out");
+//   setTimeout(() => {
+//     console.log("dinner done!");
+//     console.log("getting ready to go out");
 
-    setTimeout(() => {
-      console.log("going to playground");
-    }, 1000);
+//     setTimeout(() => {
+//       console.log("going to playground");
+//     }, 1000);
 
-  }, 2000);
+//   }, 2000);
 
-}, 3000);
+// }, 3000);
    
+function finishHomework(callback){
+    console.log("starting homework");
+    setTimeout(() => {
+      console.log("homework done!");
+      callback();
+    }, 2000);
+}
 
-
+function haveDinner(callback){
+    console.log("starting dinner");
+    setTimeout(() => {
+      console.log("dinner done!");
+      callback();
+    }, 2000);
+}
+function goToPlayground(){
+    console.log("going to playground");
+}
+    haveDinner(()=>{
+        finishHomework(()=>{
+            goToPlayground();
+    }); 
+});
 
 
