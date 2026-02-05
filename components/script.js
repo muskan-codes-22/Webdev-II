@@ -172,10 +172,10 @@ function goToPlayground(){
 dohomework()
 .then((data)=>{
     console.log(data)  
-    eatdinner() 
+     return eatdinner() 
 }).then((data)=>{
     console.log(data)
-    goToPlayground()
+    return goToPlayground()
 }).then((data)=>{
     console.log(data)
 })
