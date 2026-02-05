@@ -98,20 +98,84 @@
 //     }); 
 // });
 
-const p= new Promise((resolve,reject)=>{
-    console.log("going to do homework")
-   setTimeout(() => {
-    const done=true;
-    if(done){
-        resolve("success")
-    }else{
-        reject("failed to fetch data form server")
-    }
-},3000)
+// const p= new Promise((resolve,reject)=>{
+//     console.log("going to do homework")
+//    setTimeout(() => {
+//     const done=true;
+//     if(done){
+//         resolve("success")
+//     }else{
+//         reject("failed to fetch data form server")
+//     }
+// },3000)
 
-})
-p.then((data)=>{
+// })
+// p.then((data)=>{
+//     console.log(data)
+// }).catch((error)=>{
+//     console.log(error)
+// })
+// .finally(()=>{
+//     console.log("promise is settled")
+// })
+
+// i dont understand this study again
+
+function dohomework(){
+    return p=new Promise((resolve,reject)=>{
+        setTimeout(() => {
+            let done=true;
+            if(done){
+                console.log("homework completed")
+                resolve("homework done")
+            }else{
+                reject("homework not done")
+            }
+
+        },2000);     
+
+    })
+    
+}  
+  
+function eatdinner(){
+    return p=new Promise((resolve,reject)=>{
+        setTimeout(() => {
+            let done=true;
+            if(done){
+                console.log("dinner completed")
+                resolve("dinner done")
+            }else{
+                reject("dinner not done")
+            }
+
+        },2000);     
+
+    })
+}
+function goToPlayground(){
+    return p=new Promise((resolve,reject)=>{
+        setTimeout(() => {
+            let done=true;
+            if(done){
+                console.log("going to playground")
+                resolve("going to playground")
+            }else{
+                reject("not allowed")
+            }
+
+        },2000);     
+
+    })
+}
+
+dohomework()
+.then((data)=>{
+    console.log(data)  
+    eatdinner() 
+}).then((data)=>{
     console.log(data)
-}).catch((error)=>{
-    console.log(error)
+    goToPlayground()
+}).then((data)=>{
+    console.log(data)
 })
