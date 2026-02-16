@@ -1,18 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
->
-    <title>Document</title>
-</head>
-<body>
-    
-    <input type="text"  placeholder="enter your task " id="name">
-    <button class="btn">Add Task</button>
-    <div class="list">
-    <script src="script.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Creator</title>
+    <link rel="stylesheet" href="../style.css">
+  </head>
+  <body>
+    <form name="form">
+      <div>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+      </div>
 
-    </div>
-</body>
+      <div>
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" required>
+      </div>
+
+      <div>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+      </div>
+
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+
+      <button type="submit">Create Card</button>
+    </form>
+
+    <div id="eventcard"></div>
+
+    <script src="script.js"></script>
+  </body>
 </html>

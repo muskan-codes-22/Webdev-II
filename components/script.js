@@ -180,39 +180,67 @@
 //     console.log(data)
 // })
 
-function orderfood(){
-    return new Promise((resolve,reject)=>{
-        setTimeout(() => {
-            console.log("food ordered")
-            resolve()
-        }, 2000);
-    })
-}
+// function orderfood(){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(() => {
+//             console.log("food ordered")
+//             resolve()
+//         }, 2000);
+//     })
+// }
 
-function preparefood(){
-    return new Promise((resolve,reject)=>{
-        setTimeout(() => {
-            console.log("food prepared")
-            resolve()
-        }, 2000);
-    })
-}
+// function preparefood(){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(() => {
+//             console.log("food prepared")
+//             resolve()
+//         }, 2000);
+//     })
+// }
 
-function deliverfood(){
-    return new Promise((resolve,reject)=>{
-        setTimeout(() => {
-            console.log("food delivered")
-            resolve()
-        }, 2000);
-    })
-}
+// function deliverfood(){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(() => {
+//             console.log("food delivered")
+//             resolve()
+//         }, 2000);
+//     })
+// }
 
-async function foodOrder(){
-    await orderfood()
-    await preparefood()
+// async function foodOrder(){
+//     await orderfood()
+//     await preparefood()
     
-    await deliverfood()
+//     await deliverfood()
 
-    console.log("food is ready to eat")
-}
-foodOrder()
+//     console.log("food is ready to eat")
+// }
+// foodOrder()
+
+
+form.addEventListener("submit",(e)=>{
+    e.preventDefault();
+    const title=form.title.value;
+    const category=form.category.value;
+    const des=form.description.value;
+    const password=form.password.value;
+    console.log(title,category,des,password)
+    const card=document.createElement("div")
+    card.classList.add("card")
+    card.innerHTML=`
+    <h2>${title}</h2>
+    <p>${category}</p>
+    <p>${des}</p>
+    <button class="delete-btn">Delete</button>
+    `
+    const deleteBtn=card.querySelector(".delete-btn")
+    deleteBtn.addEventListener("click",()=>{
+        card.remove()
+    })
+    document.body.appendChild(card)
+
+    card.querySelector(".delete-btn").addEventListener("click",()=>{
+        card.remove()
+    })
+    eventcard.appendChild(card)
+})
