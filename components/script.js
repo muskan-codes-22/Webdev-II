@@ -218,29 +218,50 @@
 // foodOrder()
 
 
-form.addEventListener("submit",(e)=>{
-    e.preventDefault();
-    const title=form.title.value;
-    const category=form.category.value;
-    const des=form.description.value;
-    const password=form.password.value;
-    console.log(title,category,des,password)
-    const card=document.createElement("div")
-    card.classList.add("card")
-    card.innerHTML=`
-    <h2>${title}</h2>
-    <p>${category}</p>
-    <p>${des}</p>
-    <button class="delete-btn">Delete</button>
-    `
-    const deleteBtn=card.querySelector(".delete-btn")
-    deleteBtn.addEventListener("click",()=>{
-        card.remove()
-    })
-    document.body.appendChild(card)
+// form.addEventListener("submit",(e)=>{
+//     e.preventDefault();
+//     const title=form.title.value;
+//     const category=form.category.value;
+//     const des=form.description.value;
+//     const password=form.password.value;
+//     console.log(title,category,des,password)
+//     const card=document.createElement("div")
+//     card.classList.add("card")
+//     card.innerHTML=`
+//     <h2>${title}</h2>
+//     <p>${category}</p>
+//     <p>${des}</p>
+//     <button class="delete-btn">Delete</button>
+//     `
+//     const deleteBtn=card.querySelector(".delete-btn")
+//     deleteBtn.addEventListener("click",()=>{
+//         card.remove()
+//     })
+//     document.body.appendChild(card)
 
-    card.querySelector(".delete-btn").addEventListener("click",()=>{
-        card.remove()
-    })
-    eventcard.appendChild(card)
-})
+//     card.querySelector(".delete-btn").addEventListener("click",()=>{
+//         card.remove()
+//     })
+//     eventcard.appendChild(card)
+// })
+
+async function getdata(){
+    try{
+        const response=await fetch("https://jsonplaceholder.typicode.com/posts",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                title:"my post",
+                body:"this is my post",
+                userId:1
+            })
+        })
+        const data=await response.json()
+        console.log(data)
+    }catch(error){
+        console.log("error",error)
+    }   
+}
+getdata()
