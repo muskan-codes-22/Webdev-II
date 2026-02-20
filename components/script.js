@@ -32,10 +32,10 @@
 //         clearInterval(interval)
 
 //     }
-// },1000) 
-    
-// const taskName=document.querySelector("#name")  
-// const button=document.querySelector(".btn")  
+// },1000)
+
+// const taskName=document.querySelector("#name")
+// const button=document.querySelector(".btn")
 // const list=document.querySelector(".list")
 
 // button.addEventListener("click",()=>{
@@ -45,7 +45,7 @@
 
 //     // providng value to the elements
 //     li.innerText=taskName.value
-//     deleteButton.innerText="Delete" 
+//     deleteButton.innerText="Delete"
 //     deleteButton.addEventListener("click",()=>{
 //         // li.remove()
 //         list.removeChild(li)
@@ -53,8 +53,7 @@
 //     li.appendChild(deleteButton)
 //     list.appendChild(li)
 //     taskName.value=""
-// })   
-
+// })
 
 // console.log("starting homework");
 
@@ -73,7 +72,7 @@
 //   }, 2000);
 
 // }, 3000);
-   
+
 // function finishHomework(callback){
 //     console.log("starting homework");
 //     setTimeout(() => {
@@ -95,7 +94,7 @@
 //     haveDinner(()=>{
 //         finishHomework(()=>{
 //             goToPlayground();
-//     }); 
+//     });
 // });
 
 // const p= new Promise((resolve,reject)=>{
@@ -132,12 +131,12 @@
 //                 reject("homework not done")
 //             }
 
-//         },2000);     
+//         },2000);
 
 //     })
-    
-// }  
-  
+
+// }
+
 // function eatdinner(){
 //     return p=new Promise((resolve,reject)=>{
 //         setTimeout(() => {
@@ -149,7 +148,7 @@
 //                 reject("dinner not done")
 //             }
 
-//         },2000);     
+//         },2000);
 
 //     })
 // }
@@ -164,15 +163,15 @@
 //                 reject("not allowed")
 //             }
 
-//         },2000);     
+//         },2000);
 
 //     })
 // }
 
 // dohomework()
 // .then((data)=>{
-//     console.log(data)  
-//      return eatdinner() 
+//     console.log(data)
+//      return eatdinner()
 // }).then((data)=>{
 //     console.log(data)
 //     return goToPlayground()
@@ -210,13 +209,12 @@
 // async function foodOrder(){
 //     await orderfood()
 //     await preparefood()
-    
+
 //     await deliverfood()
 
 //     console.log("food is ready to eat")
 // }
 // foodOrder()
-
 
 // form.addEventListener("submit",(e)=>{
 //     e.preventDefault();
@@ -245,23 +243,48 @@
 //     eventcard.appendChild(card)
 // })
 
-async function getdata(){
-    try{
-        const response=await fetch("https://jsonplaceholder.typicode.com/posts",{
-            method:"POST",
-            headers:{
-                "Content-Type":"application/json"
-            },
-            body:JSON.stringify({
-                title:"my post",
-                body:"this is my post",
-                userId:1
-            })
-        })
-        const data=await response.json()
-        console.log(data)
-    }catch(error){
-        console.log("error",error)
-    }   
+// async function getdata() {
+//   try {
+//     const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
+//       method: "POST", //backend ko data bhej rahe hai
+//       headers: {
+//         "Content-Type": "application/json", //extra points backend ko batane ke liye jo bhi data hai wo json format main hai
+//       },
+//       body: JSON.stringify({
+//         title: "my post",
+//         body: "this is my post",
+//         userId: 1,
+//       }),
+//     });
+//     const data = await response.json();
+//     console.log(data);
+//   } catch (error) {
+//     console.log("error", error);
+//   }
+// }
+// getdata();
+
+// let obj={
+//     name:Muskan,
+//     age:19
+// }
+// localStorage.setItem("obj",JSON.stringify(obj))
+// localStorage.setItem("name","Muskan")
+// localStorage.setItem("age",19)
+// console.log(localStorage.getItem("name"))
+// console.log(localStorage.getItem("age"))
+
+// console.log(JSON.parse(localStorage.getItem("obj")))
+// localStorage.removeItem("name")
+
+// sessionStorage.setItem("name", "Muskan");
+// sessionStorage.setItem("age", 19);
+// console.log(sessionStorage.getItem("name"));
+// console.log(sessionStorage.getItem("age"));
+
+document.cookie = "username=Muskan; expires=Fri, 20 feb 2026 23:59:59 UTC;";
+document.cookie = "age=19; expires=Fri, 20 feb 2026 23:59:59 UTC;";
+async function sample() {
+    await fetch("http://127.0.0.1:3000/components/file.html") 
 }
-getdata()
+sample()
