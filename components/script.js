@@ -282,9 +282,33 @@
 // console.log(sessionStorage.getItem("name"));
 // console.log(sessionStorage.getItem("age"));
 
-document.cookie = "username=Muskan; expires=Fri, 20 feb 2026 23:59:59 UTC;";
-document.cookie = "age=19; expires=Fri, 20 feb 2026 23:59:59 UTC;";
-async function sample() {
-    await fetch("http://127.0.0.1:3000/components/file.html") 
-}
-sample()
+// document.cookie = "username=Muskan; expires=Fri, 20 feb 2026 23:59:59 UTC;";
+// document.cookie = "age=19; expires=Fri, 20 feb 2026 23:59:59 UTC;";
+// async function sample() {
+//     await fetch("http://127.0.0.1:3000/components/file.html") 
+// }
+// sample()
+
+// function*generate(){
+//     yield 1;
+//     yield 2;
+//     yield 3;
+// }
+// const res=generate()
+// console.log(res.next())
+// console.log(res.next())
+// console.log(res.next())
+
+// function add(a){
+//     return function(b){
+//         return function(c){
+//             return a+b+c
+//         }
+        
+// }
+// }
+
+//with arrow function
+const add=a=>b=>c=>a+b+c
+console.log(add(2)(3)(4));
+    
