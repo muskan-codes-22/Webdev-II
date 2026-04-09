@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import './App.css'
 import TopBar from './component/TopBar'
-import News from './component/Article'
+import Article from './component/Article'
+import HomePage from './component/HomePage'
 
 function App() {
 
@@ -10,8 +11,9 @@ function App() {
 
   return (
     <>
+      <HomePage />
       <TopBar />
-      <News title={title} />
+      <Article title={title} />
     </>
   )
 }
