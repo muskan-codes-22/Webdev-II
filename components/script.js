@@ -1,0 +1,314 @@
+// console.log('we will right code')
+
+// debugger
+// console.log(a)
+// var a=3453
+// let b=456;
+// console.log(a)
+// console.log(b)
+
+// function test(){
+//     let c=40
+//     console.log("inside fn")
+// }
+// test()
+// let total=345;
+
+// console.log("this is the beginning of script.js file")
+// setTimeout(() => {
+//     console.log("After 2 seconds")
+// }, 2000);
+// console.log("this is the end of script.js file")
+
+// const interval=setInterval(() => {console.log("printing at every 2 seconds")}, 2000);
+// setTimeout(() => {clearInterval(interval)},10000);
+// const timeout=setTimeout(() => {console.log("after 2 second")},2000);
+// clearTimeout(timeout);
+// let num=0;
+// const interval=setInterval(() => {
+//     num+=1
+//     console.log(num);
+//     if(num===10){
+//         clearInterval(interval)
+
+//     }
+// },1000)
+
+// const taskName=document.querySelector("#name")
+// const button=document.querySelector(".btn")
+// const list=document.querySelector(".list")
+
+// button.addEventListener("click",()=>{
+//     // #creating the element
+//     const li=document.createElement("li")
+//     const deleteButton=document.createElement("button")
+
+//     // providng value to the elements
+//     li.innerText=taskName.value
+//     deleteButton.innerText="Delete"
+//     deleteButton.addEventListener("click",()=>{
+//         // li.remove()
+//         list.removeChild(li)
+//     })
+//     li.appendChild(deleteButton)
+//     list.appendChild(li)
+//     taskName.value=""
+// })
+
+// console.log("starting homework");
+
+// setTimeout(() => {
+//   console.log("homework done!");
+//   console.log("starting dinner");
+
+//   setTimeout(() => {
+//     console.log("dinner done!");
+//     console.log("getting ready to go out");
+
+//     setTimeout(() => {
+//       console.log("going to playground");
+//     }, 1000);
+
+//   }, 2000);
+
+// }, 3000);
+
+// function finishHomework(callback){
+//     console.log("starting homework");
+//     setTimeout(() => {
+//       console.log("homework done!");
+//       callback();
+//     }, 2000);
+// }
+
+// function haveDinner(callback){
+//     console.log("starting dinner");
+//     setTimeout(() => {
+//       console.log("dinner done!");
+//       callback();
+//     }, 2000);
+// }
+// function goToPlayground(){
+//     console.log("going to playground");
+// }
+//     haveDinner(()=>{
+//         finishHomework(()=>{
+//             goToPlayground();
+//     });
+// });
+
+// const p= new Promise((resolve,reject)=>{
+//     console.log("going to do homework")
+//    setTimeout(() => {
+//     const done=true;
+//     if(done){
+//         resolve("success")
+//     }else{
+//         reject("failed to fetch data form server")
+//     }
+// },3000)
+
+// })
+// p.then((data)=>{
+//     console.log(data)
+// }).catch((error)=>{
+//     console.log(error)
+// })
+// .finally(()=>{
+//     console.log("promise is settled")
+// })
+
+// // i dont understand this study again
+// console.log("starting homework");
+// function dohomework(){
+//     return p=new Promise((resolve,reject)=>{
+//         setTimeout(() => {
+//             let done=true;
+//             if(done){
+//                 console.log("homework completed")
+//                 resolve("homework done")
+//             }else{
+//                 reject("homework not done")
+//             }
+
+//         },2000);
+
+//     })
+
+// }
+
+// function eatdinner(){
+//     return p=new Promise((resolve,reject)=>{
+//         setTimeout(() => {
+//             let done=true;
+//             if(done){
+//                 console.log("dinner completed")
+//                 resolve("dinner done")
+//             }else{
+//                 reject("dinner not done")
+//             }
+
+//         },2000);
+
+//     })
+// }
+// function goToPlayground(){
+//     return p=new Promise((resolve,reject)=>{
+//         setTimeout(() => {
+//             let done=true;
+//             if(done){
+//                 console.log("going to playground")
+//                 resolve("going to playground")
+//             }else{
+//                 reject("not allowed")
+//             }
+
+//         },2000);
+
+//     })
+// }
+
+// dohomework()
+// .then((data)=>{
+//     console.log(data)
+//      return eatdinner()
+// }).then((data)=>{
+//     console.log(data)
+//     return goToPlayground()
+// }).then((data)=>{
+//     console.log(data)
+// })
+
+// function orderfood(){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(() => {
+//             console.log("food ordered")
+//             resolve()
+//         }, 2000);
+//     })
+// }
+
+// function preparefood(){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(() => {
+//             console.log("food prepared")
+//             resolve()
+//         }, 2000);
+//     })
+// }
+
+// function deliverfood(){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(() => {
+//             console.log("food delivered")
+//             resolve()
+//         }, 2000);
+//     })
+// }
+
+// async function foodOrder(){
+//     await orderfood()
+//     await preparefood()
+
+//     await deliverfood()
+
+//     console.log("food is ready to eat")
+// }
+// foodOrder()
+
+// form.addEventListener("submit",(e)=>{
+//     e.preventDefault();
+//     const title=form.title.value;
+//     const category=form.category.value;
+//     const des=form.description.value;
+//     const password=form.password.value;
+//     console.log(title,category,des,password)
+//     const card=document.createElement("div")
+//     card.classList.add("card")
+//     card.innerHTML=`
+//     <h2>${title}</h2>
+//     <p>${category}</p>
+//     <p>${des}</p>
+//     <button class="delete-btn">Delete</button>
+//     `
+//     const deleteBtn=card.querySelector(".delete-btn")
+//     deleteBtn.addEventListener("click",()=>{
+//         card.remove()
+//     })
+//     document.body.appendChild(card)
+
+//     card.querySelector(".delete-btn").addEventListener("click",()=>{
+//         card.remove()
+//     })
+//     eventcard.appendChild(card)
+// })
+
+// async function getdata() {
+//   try {
+//     const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
+//       method: "POST", //backend ko data bhej rahe hai
+//       headers: {
+//         "Content-Type": "application/json", //extra points backend ko batane ke liye jo bhi data hai wo json format main hai
+//       },
+//       body: JSON.stringify({
+//         title: "my post",
+//         body: "this is my post",
+//         userId: 1,
+//       }),
+//     });
+//     const data = await response.json();
+//     console.log(data);
+//   } catch (error) {
+//     console.log("error", error);
+//   }
+// }
+// getdata();
+
+// let obj={
+//     name:Muskan,
+//     age:19
+// }
+// localStorage.setItem("obj",JSON.stringify(obj))
+// localStorage.setItem("name","Muskan")
+// localStorage.setItem("age",19)
+// console.log(localStorage.getItem("name"))
+// console.log(localStorage.getItem("age"))
+
+// console.log(JSON.parse(localStorage.getItem("obj")))
+// localStorage.removeItem("name")
+
+// sessionStorage.setItem("name", "Muskan");
+// sessionStorage.setItem("age", 19);
+// console.log(sessionStorage.getItem("name"));
+// console.log(sessionStorage.getItem("age"));
+
+// document.cookie = "username=Muskan; expires=Fri, 20 feb 2026 23:59:59 UTC;";
+// document.cookie = "age=19; expires=Fri, 20 feb 2026 23:59:59 UTC;";
+// async function sample() {
+//     await fetch("http://127.0.0.1:3000/components/file.html") 
+// }
+// sample()
+
+// function*generate(){
+//     yield 1;
+//     yield 2;
+//     yield 3;
+// }
+// const res=generate()
+// console.log(res.next())
+// console.log(res.next())
+// console.log(res.next())
+
+// function add(a){
+//     return function(b){
+//         return function(c){
+//             return a+b+c
+//         }
+        
+// }
+// }
+
+//with arrow function
+const add=a=>b=>c=>a+b+c
+console.log(add(2)(3)(4));
+    

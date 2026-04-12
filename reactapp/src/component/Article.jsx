@@ -1,4 +1,6 @@
 // import React, {useState} from 'react'
+import style from "../css/Article.module.css"
+
 
 // function Article(props) {
 //   const [count, setCount]=useState(0)
@@ -67,8 +69,8 @@ class Article extends React.Component {
       <div>
         <h1>Article</h1>
         <h3>{this.state.count}</h3>
-        <button onClick={this.handleClick}>Increment</button>
-        <button onClick={this.handleDecrement}>Decrement</button>
+        <button className={style.btn} onClick={this.handleClick}>Increment</button>
+        <button className={style.btn} onClick={this.handleDecrement}>Decrement</button>
         <h3>{this.props.title}</h3> 
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi eligendi fugiat pariatur eos quibusdam ratione possimus adipisci, impedit, autem ad quo, et cum laudantium deleniti. Soluta molestias amet quas labore.</p>
       </div>
