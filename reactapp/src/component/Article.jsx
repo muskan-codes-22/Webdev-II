@@ -1,5 +1,7 @@
 // import React, {useState} from 'react'
 import style from "../css/Article.module.css"
+import styled from "styled-components"
+import {css} from "@emotion/react"
 
 
 // function Article(props) {
@@ -70,8 +72,9 @@ class Article extends React.Component {
         <h1>Article</h1>
         <h3>{this.state.count}</h3>
         <button className={style.btn} onClick={this.handleClick}>Increment</button>
-        <button className={style.btn} onClick={this.handleDecrement}>Decrement</button>
-        <h3>{this.props.title}</h3> 
+        <Button className={style.btn} onClick={this.handleDecrement}>Decrement</Button>
+        <h3>{this.props.title}</h3>
+        <Button pink> Click Me </Button> 
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi eligendi fugiat pariatur eos quibusdam ratione possimus adipisci, impedit, autem ad quo, et cum laudantium deleniti. Soluta molestias amet quas labore.</p>
       </div>
     )
@@ -79,4 +82,12 @@ class Article extends React.Component {
 }
 
 export default  Article
+
+const Button=styled.button`
+  background-color:${props=>props.pink?"pink":"blue"};
+  color:white;
+  padding:10px;
+  border:none;
+  border-radius:5px;  
+  `
 
