@@ -1,107 +1,83 @@
-// import React, {useState} from 'react'
-import style from "../css/Article.module.css"
-import styled from "styled-components"
-import {css} from "@emotion/react"
-import React, {useState, useEffect} from 'react'
-    
-
+import React, { useState, useEffect } from "react";
+import style from "../css/Article.module.css";
+import styled from "styled-components";
+import axios from "axios";
 
 function Article(props) {
-  const [count, setCount]=useState(0)
-  const [name,setName] = useState("Alex")
+  const [count, setCount] = useState(0);
+  const [name, setName] = useState("Alex");
 
-  useEffect(()=>{
-    console.log("Component Mounted")
-  },[name])
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
+  useEffect(() => {
+    console.log("Component Mounted");
+    return () => {
+      console.log("Component Unmounted");
+    };
+  }, [name]);
+  useEffect(() => {
 
-
-// function Article(props) {
-//   const [count, setCount]=useState(0)
-
-
-//   const handleIncrement=()=>{
-//     setCount(count+1)
-//   }
-//   return (
-//     <div>
-//       <h1>Article</h1>
-//        <h3>{props.title}</h3> 
-//       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi eligendi fugiat pariatur eos quibusdam ratione possimus adipisci, impedit, autem ad quo, et cum laudantium deleniti. Soluta molestias amet quas labore.</p>
-//       <h2>{count}</h2>
-//       <button onClick={handleIncrement}>Increment</button>
-//       {/* <button onClick={handleDecrement}>Decrement</button> */}
-//     </div>
-//   )
-// }
-
-// export default Article
-
-import React from 'react'
-import { add as addition } from '../utility'
-
-class Article extends React.Component {
-    constructor(props) {
-      super(props)
-      this.state={
-        count:0,
-        name:"Alex"
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://jsonplaceholder.typicode.com/users/1"
+        );
+      console.log(response.data);
+      }catch (err) {
+        setError("Failed to fetch user data");
       }
-    //   console.log(addition(2,3))
-    }
+    };
 
-    componentDidMount(){
-        console.log("componentDidMount")
-    }
+    fetchData();
+  }, []);
 
-    shouldComponentUpdate(nextProps, nextState){
-      if(nextState.count===1)return false
-        console.log("shouldComponentUpdate")
-        return true
-    }
+  return (
+    <div>
+      <h1>Article</h1>
 
+      <h2>{name}</h2>
+      <h3>{count}</h3>
 
-    componentDidUpdate(){
-        console.log("componentDidUpdate")
-    }
+      <button
+        className={style.btn}
+        onClick={() => setCount(count + 1)}
+      >
+        Increment
+      </button>
 
-    componentWillUnmount(){
-        console.log("componentWillUnmount")
-    }
+      <Button onClick={() => setCount(count - 1)}>
+        Decrement
+      </Button>
 
-    handleClick=()=>{
-        // this.state.count=this.state.count+1
-        // console.log(this.state.count)
-        this.setState({count: this.state.count+1})
-    }
+      <h3>{props.title}</h3>
 
-    handleDecrement=()=>{
-        this.setState({count: this.state.count-1})
-    }
-  render() {
-    return (
+      {/* API Data Section */}
       <div>
-        <h1>Article</h1>
-        <h2>{name}</h2>
-        <h3>{this.state.count}</h3>
-        <button className={style.btn} onClick={this.handleClick}>Increment</button>
-        <Button className={style.btn} onClick={this.handleDecrement}>Decrement</Button>
-        <h3>{this.props.title}</h3>
-        <Button pink> Click Me </Button> 
-        <button className="bg-blue-600 ">Click Me</button>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi eligendi fugiat pariatur eos quibusdam ratione possimus adipisci, impedit, autem ad quo, et cum laudantium deleniti. Soluta molestias amet quas labore.</p>
+        {loading && <p>Loading...</p>}
+
+        {error && <p>{error}</p>}
+
+        {user && (
+          <div>
+            <h3>User Info</h3>
+            <p><strong>Name:</strong> {user.name}</p>
+            <p><strong>Email:</strong> {user.email}</p>
+            <p><strong>City:</strong> {user.address.city}</p>
+          </div>
+        )}
       </div>
-    )
-  }
+    </div>
+  );
 }
 
-export default  Article
+export default Article;
 
-const Button=styled.button`
-  background-color:${props=>props.pink?"pink":"blue"};
-  color:white;
-  padding:10px;
-  border:none;
-  border-radius:5px;  
-  `
-
+const Button = styled.button`
+  background-color: ${(props) => (props.pink ? "pink" : "blue")};
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+`;
