@@ -2,6 +2,18 @@
 import style from "../css/Article.module.css"
 import styled from "styled-components"
 import {css} from "@emotion/react"
+import React, {useState, useEffect} from 'react'
+    
+
+
+function Article(props) {
+  const [count, setCount]=useState(0)
+  const [name,setName] = useState("Alex")
+
+  useEffect(()=>{
+    console.log("Component Mounted")
+  },[name])
+
 
 
 // function Article(props) {
@@ -70,11 +82,13 @@ class Article extends React.Component {
     return (
       <div>
         <h1>Article</h1>
+        <h2>{name}</h2>
         <h3>{this.state.count}</h3>
         <button className={style.btn} onClick={this.handleClick}>Increment</button>
         <Button className={style.btn} onClick={this.handleDecrement}>Decrement</Button>
         <h3>{this.props.title}</h3>
         <Button pink> Click Me </Button> 
+        <button className="bg-blue-600 ">Click Me</button>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi eligendi fugiat pariatur eos quibusdam ratione possimus adipisci, impedit, autem ad quo, et cum laudantium deleniti. Soluta molestias amet quas labore.</p>
       </div>
     )
