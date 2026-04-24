@@ -1,32 +1,42 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import style from "../css/Article.module.css";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import axios from "axios";
+import Contact from "./Contact"; // ⚠️ make sure filename is Contact.jsx
 
 function Article(props) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0); // ✅ FIXED
   const [name, setName] = useState("Alex");
 
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const inputRef = useRef(null);
 
   useEffect(() => {
     console.log("Component Mounted");
+
     return () => {
       console.log("Component Unmounted");
     };
   }, [name]);
-  useEffect(() => {
 
+  // ✅ AXIOS API CALL
+  useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
+
         const response = await axios.get(
           "https://jsonplaceholder.typicode.com/users/1"
         );
-      console.log(response.data);
-      }catch (err) {
+
+        setUser(response.data);
+        setLoading(false);
+      } catch (err) {
         setError("Failed to fetch user data");
+        setLoading(false);
       }
     };
 
@@ -37,8 +47,45 @@ function Article(props) {
     <div>
       <h1>Article</h1>
 
+      <h3>{props.title}</h3>
       <h2>{name}</h2>
-      <h3>{count}</h3>
+
+      <button onClick={() => setName("John")}>
+        Change Name
+      </button>
+
+      {/* 🔹 API SECTION */}
+      {loading && <h2>Loading...</h2>}
+      {error && <h2>{error}</h2>}
+
+      {user && (
+        <div>
+          <h3>User Info</h3>
+          <p><b>Name:</b> {user.name}</p>
+          <p><b>Email:</b> {user.email}</p>
+          <p><b>City:</b> {user.address.city}</p>
+        </div>
+      )}
+
+      {/* 🔹 INPUT REF */}
+      <div>
+        <input
+          type="text"
+          placeholder="Enter your text"
+          ref={inputRef}
+        />
+        <button
+          onClick={() => {
+            console.log(inputRef.current.value);
+            inputRef.current.focus();
+          }}
+        >
+          Submit
+        </button>
+      </div>
+
+      {/* 🔹 COUNTER */}
+      <h2>{count}</h2>
 
       <button
         className={style.btn}
@@ -47,37 +94,23 @@ function Article(props) {
         Increment
       </button>
 
-      <Button onClick={() => setCount(count - 1)}>
-        Decrement
-      </Button>
+      <Button>Styled Button</Button>
+      <Button yellow>Yellow Button</Button>
 
-      <h3>{props.title}</h3>
-
-      {/* API Data Section */}
-      <div>
-        {loading && <p>Loading...</p>}
-
-        {error && <p>{error}</p>}
-
-        {user && (
-          <div>
-            <h3>User Info</h3>
-            <p><strong>Name:</strong> {user.name}</p>
-            <p><strong>Email:</strong> {user.email}</p>
-            <p><strong>City:</strong> {user.address.city}</p>
-          </div>
-        )}
-      </div>
+      {/* ✅ Contact Component */}
+      <Contact />
     </div>
   );
 }
 
 export default Article;
 
+// 🔹 STYLED BUTTON
 const Button = styled.button`
-  background-color: ${(props) => (props.pink ? "pink" : "blue")};
+  background-color: ${(props) =>
+    props.yellow ? "yellow" : "red"};
   color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
+  width: 120px;
+  height: 35px;
+  margin: 5px;
 `;
