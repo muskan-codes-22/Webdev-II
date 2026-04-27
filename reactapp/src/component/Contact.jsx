@@ -4,12 +4,13 @@ function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (data) => {
     event.preventDefault();
     if(!email.endsWith("@krmu.edu.in")){
         alert("invalid email address");
         return;
     }
+    console.log(data);
     console.log("Name:", name);
     console.log("Email:", email);
   };
