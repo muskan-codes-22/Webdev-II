@@ -2,10 +2,10 @@ import React, { useState, useEffect, useRef } from "react";
 import style from "../css/Article.module.css";
 import styled from "@emotion/styled";
 import axios from "axios";
-import Contact from "./Contact"; // ⚠️ make sure filename is Contact.jsx
+import Contact from "./Contact"; 
 
 function Article(props) {
-  const [count, setCount] = useState(0); // ✅ FIXED
+  const [count, setCount] = useState(0); 
   const [name, setName] = useState("Alex");
 
   const [user, setUser] = useState(null);
@@ -22,7 +22,7 @@ function Article(props) {
     };
   }, [name]);
 
-  // ✅ AXIOS API CALL
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -54,7 +54,7 @@ function Article(props) {
         Change Name
       </button>
 
-      {/* 🔹 API SECTION */}
+      
       {loading && <h2>Loading...</h2>}
       {error && <h2>{error}</h2>}
 
@@ -67,7 +67,7 @@ function Article(props) {
         </div>
       )}
 
-      {/* 🔹 INPUT REF */}
+      
       <div>
         <input
           type="text"
@@ -84,7 +84,7 @@ function Article(props) {
         </button>
       </div>
 
-      {/* 🔹 COUNTER */}
+      
       <h2>{count}</h2>
 
       <button
@@ -97,7 +97,7 @@ function Article(props) {
       <Button>Styled Button</Button>
       <Button yellow>Yellow Button</Button>
 
-      {/* ✅ Contact Component */}
+    
       <Contact />
     </div>
   );
@@ -105,7 +105,7 @@ function Article(props) {
 
 export default Article;
 
-// 🔹 STYLED BUTTON
+
 const Button = styled.button`
   background-color: ${(props) =>
     props.yellow ? "yellow" : "red"};
